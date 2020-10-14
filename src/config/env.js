@@ -39,8 +39,24 @@ function env(name, init) {
 export const VERSION = env("VERSION");
 export const BUILD = env("BUILD", "19730101-000000");
 
+/**
+ * login
+ */
+export const AUTH_LOGIN_URL = env(
+  "AUTH_LOGIN_URL",
+  "https://stargatetest.account-uat.stargate.36node.com/auth"
+);
+export const APP_ID = env("APP_ID", "5f86c7397f1cb50011672b5b");
+
+/**
+ * sdk
+ */
+export const AUTH_BASE = env(
+  "AUTH_BASE",
+  "https://api.stargate.36node.com/auth/uat"
+);
+
 /* eslint-disable */
 console.log(`VERSION:${VERSION}`);
 console.log(`BUILD:${BUILD}`);
-console.log(`STORE_BASE:${STORE_BASE}`);
 /* eslint-disable */

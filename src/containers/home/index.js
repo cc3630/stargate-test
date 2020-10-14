@@ -1,24 +1,34 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import { Button } from "antd";
+import { get } from "lodash";
+import { useSession } from "@36node/redux-session";
 
 import { auth } from "../../actions/api";
-import { domain } from "../../constants";
+import { Domain } from "../../constants";
 import Container from "../../components/layout/container";
 
-const logout = auth.makeLogout(domain.session);
-const unAuth = auth.makeUnAuth(domain.session);
+const logout = auth.session.makeLogout(Domain.session);
 
-@connect(state => ({}))
-export default class extends React.PureComponent {
-  handleLogout = () => {
-    this.props.dispatch(logout());
+export default function Home() {
+  const dispatch = useDispatch();
+  const session = useSession(Domain.session);
+
+  const onLogout = () => {
+    const sessionId = get(session, "result.id");
+    if (sessionId) {
+      dispatch(logout({ sessionId }));
+    }
   };
 
-  handleUnauth = () => {
-    this.props.dispatch(unAuth());
-  };
-
-  render() {
-    return <Container>登录成功，这里是主页</Container>;
-  }
+  return (
+    <Container>
+      <div>登录成功，这里是主页</div>
+      <div>
+        <Button type="primary" onClick={onLogout}>
+          退出登录
+        </Button>
+      </div>
+    </Container>
+  );
 }

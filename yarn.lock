@@ -2,6 +2,15 @@
 # yarn lockfile v1
 
 
+"@36node/auth-sdk@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npm.taobao.org/@36node/auth-sdk/download/@36node/auth-sdk-1.0.11.tgz#df0d9c78a2ee5547cfa12b8e79d1d6848a744eaa"
+  integrity sha1-3w2ceKLuVUfPoSuOedHWhIp0Tqo=
+  dependencies:
+    "@36node/fetch" "^0.6.4"
+    "@36node/query-normalizr" "^0.4.8"
+    commander "^2.20.0"
+
 "@36node/browserslist-config@^0.1.2":
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/@36node/browserslist-config/download/@36node/browserslist-config-0.1.2.tgz#2af6785bbbdb4ff92b028f8d60e069650cf786aa"
@@ -44,6 +53,14 @@
     json-server "^0.15.0"
     lodash "^4.17.11"
     moment "^2.24.0"
+
+"@36node/query-normalizr@^0.4.8":
+  version "0.4.8"
+  resolved "https://registry.npm.taobao.org/@36node/query-normalizr/download/@36node/query-normalizr-0.4.8.tgz#481323d4d2d51f3c5fd014e975ee297c0020b856"
+  integrity sha1-SBMj1NLVHzxf0BTpde4pfAAguFY=
+  dependencies:
+    humps "^2.0.1"
+    lodash "^4.17.11"
 
 "@36node/query-normalizr@^0.5.0":
   version "0.5.0"

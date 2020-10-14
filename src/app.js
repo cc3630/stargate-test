@@ -1,14 +1,14 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
-import { Router, Route, Switch } from "react-router-dom";
-import { Layout } from "antd";
-import { history, ProtectedRoute } from "@36node/redux-session";
+import { Router, Route, Switch, useLocation } from "react-router-dom";
+import { Layout, Spin } from "antd";
+import { isEmpty } from "lodash";
+import { history, ProtectedRoute, withSession } from "@36node/redux-session";
 
-import Logo from "./components/logo";
 import Home from "./containers/home";
 import Login from "./containers/login";
 
-const { Content, Footer, Header } = Layout;
+const { Header } = Layout;
 
 const App = () => (
   <Router history={history}>
@@ -19,21 +19,25 @@ const App = () => (
   </Router>
 );
 
-const Main = () => (
-  <Layout style={{ minHeight: "100vh" }}>
-    <Header>
-      <Logo />
-    </Header>
-    <Content style={{ padding: "0 50px" }}>
-      <Switch>
+const Main = withSession("session")(props => {
+  const location = useLocation();
+
+  const { result = {} } = props.session;
+
+  if (isEmpty(result.user)) {
+    return <Spin />;
+  }
+
+  return (
+    <Layout style={{ height: "100vh" }}>
+      <Header />
+
+      <Switch location={location}>
         <Route path="/" exact component={Home} />
       </Switch>
-    </Content>
-    <Footer style={{ textAlign: "center" }}>
-      Template-CRA-Redux ©2019 Created by 36node
-    </Footer>
-  </Layout>
-);
+    </Layout>
+  );
+});
 
 const HotApp = process.env.NODE_ENV === "development" ? hot(App) : App;
 export default HotApp;
