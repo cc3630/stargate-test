@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { AUTH_LOGIN_URL, APP_ID } from "../../config";
+import { AUTH_URL, APP_ID } from "../../config";
 import { Domain } from "../../constants";
 import { auth } from "../../actions/api";
 
@@ -24,8 +24,8 @@ export default function LoginPage() {
     if (code) {
       dispatch(refresh({ sessionId: code }, { from: "/" }));
     } else {
-      // 跳转至登录页面
-      window.location.href = `${AUTH_LOGIN_URL}?appId=${APP_ID}`;
+      // 跳转至登录验证页面
+      window.location.href = `${AUTH_URL}?appId=${APP_ID}`;
     }
   }, []); // eslint-disable-line
 

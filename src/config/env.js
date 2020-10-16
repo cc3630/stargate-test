@@ -42,9 +42,13 @@ export const BUILD = env("BUILD", "19730101-000000");
 /**
  * login
  */
+export const AUTH_URL = env(
+  "AUTH_URL",
+  "https://stargatetest.account-uat.stargate.36node.com/auth"
+);
 export const AUTH_LOGIN_URL = env(
   "AUTH_LOGIN_URL",
-  "https://stargatetest.account-uat.stargate.36node.com/auth"
+  "https://stargatetest.account-uat.stargate.36node.com/login"
 );
 export const APP_ID = env("APP_ID", "5f86c7397f1cb50011672b5b");
 

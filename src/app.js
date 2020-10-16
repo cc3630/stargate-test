@@ -24,7 +24,7 @@ const Main = withSession("session")(props => {
 
   const { result = {} } = props.session;
 
-  if (isEmpty(result.user)) {
+  if (isEmpty(result.provider)) {
     return <Spin />;
   }
 
