@@ -1,5 +1,5 @@
 {
-  "name": "stargate-test",
+  "name": "@cc3630/stargate-test",
   "version": "0.0.0",
   "description": "A react boilerplate based on CRA",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "clean": "sketch clean",
     "format": "prettier --trailing-comma es5 --write 'src/**/*.js'",
     "lint": "sketch lint src",
-    "release": "standard-version",
+    "release": "standard-version -t release-v",
     "server": "serve -s build",
     "start": "REACT_APP_VERSION=$npm_package_version sketch start",
     "test": "sketch test --env=jsdom",
